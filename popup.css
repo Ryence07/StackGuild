@@ -1,0 +1,269 @@
+/* ============================================================
+   popup.css — StackGuild Extension UI Styles
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary:   #EE4D2D;   /* Shopee orange-red */
+  --secondary: #F57224;   /* Lazada orange */
+  --accent:    #1a73e8;
+  --bg:        #f8f9fa;
+  --surface:   #ffffff;
+  --border:    #e0e0e0;
+  --text:      #212121;
+  --text-sub:  #757575;
+  --success:   #34a853;
+  --danger:    #ea4335;
+  --radius:    8px;
+  --shadow:    0 2px 8px rgba(0,0,0,0.12);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  width: 360px;
+  min-height: 200px;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+/* ---- Header ---- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary);
+  color: white;
+  padding: 10px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-logo { display: flex; align-items: center; gap: 8px; }
+.header-icon { width: 28px; height: 28px; border-radius: 6px; }
+.header-title { font-size: 16px; font-weight: 700; letter-spacing: 0.5px; }
+.header-sub   { font-size: 10px; opacity: 0.85; }
+
+.btn-icon {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  transition: background 0.2s;
+}
+.btn-icon:hover { background: rgba(255,255,255,0.3); }
+
+/* ---- Panels ---- */
+.panel { padding: 12px 14px; }
+.hidden { display: none !important; }
+
+/* ---- Product Card ---- */
+.product-card {
+  display: flex;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+.product-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #eee;
+  flex-shrink: 0;
+}
+.product-info { flex: 1; overflow: hidden; }
+.platform-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  background: var(--primary);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-bottom: 4px;
+}
+.platform-badge.lazada { background: var(--secondary); }
+.product-title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+.product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+/* ---- Target Price Row ---- */
+.target-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.target-row label { flex-shrink: 0; font-weight: 500; font-size: 12px; }
+.target-row input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  outline: none;
+  transition: border 0.2s;
+}
+.target-row input:focus { border-color: var(--accent); }
+
+/* ---- Buttons ---- */
+.btn-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+.btn:hover  { opacity: 0.88; }
+.btn:active { transform: scale(0.98); }
+.btn-primary   { background: var(--primary);   color: white; }
+.btn-danger    { background: var(--danger);     color: white; }
+.btn-secondary { background: #e8f0fe; color: var(--accent); }
+.btn-ghost     { background: transparent; color: var(--text-sub); border: 1px solid var(--border); }
+
+/* ---- Status Message ---- */
+.status-msg {
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  margin-bottom: 8px;
+  background: #e8f5e9;
+  color: var(--success);
+  border-left: 3px solid var(--success);
+}
+.status-msg.error {
+  background: #fce8e6;
+  color: var(--danger);
+  border-left-color: var(--danger);
+}
+
+/* ---- Section Header ---- */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.section-title { font-size: 13px; font-weight: 600; color: var(--text); }
+.badge {
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  padding: 1px 7px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ---- Products List ---- */
+.products-list { display: flex; flex-direction: column; gap: 8px; }
+
+.product-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  transition: box-shadow 0.2s;
+}
+.product-list-item:hover { box-shadow: var(--shadow); }
+.product-list-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #eee;
+  flex-shrink: 0;
+}
+.product-list-info { flex: 1; overflow: hidden; }
+.product-list-name {
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product-list-price { font-size: 13px; font-weight: 700; color: var(--primary); }
+.product-list-target { font-size: 10px; color: var(--text-sub); }
+.product-list-actions { display: flex; gap: 4px; }
+.btn-sm {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #f1f3f4;
+  color: var(--text);
+  transition: background 0.2s;
+}
+.btn-sm:hover { background: #e0e0e0; }
+.btn-sm.danger { background: #fce8e6; color: var(--danger); }
+
+/* ---- Chart ---- */
+#chart-section { margin-top: 10px; }
+#price-chart {
+  width: 100% !important;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+/* ---- Empty State ---- */
+.empty-state {
+  text-align: center;
+  padding: 20px 10px;
+  color: var(--text-sub);
+}
+.empty-icon  { font-size: 32px; margin-bottom: 6px; }
+.empty-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.empty-sub   { font-size: 11px; line-height: 1.5; }
+
+/* ---- Settings ---- */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+.setting-row label { font-weight: 500; }
+.setting-row input[type="number"] {
+  width: 80px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.mt-8 { margin-top: 8px; }
+
+/* ---- Divider ---- */
+hr { border: none; border-top: 1px solid var(--border); margin: 10px 0; }
